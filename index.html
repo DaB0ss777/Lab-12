@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile.structure-1.2.0.min.css" />
+<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+
+<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script>
+
+var map;
+var markersArray = [];
+
+
+function showMap()
+  {
+ 
+  latlon=new google.maps.LatLng(41.412914,-82.072218)
+  mapholder=document.getElementById('mapholder')
+  mapholder.style.height='800px';
+  mapholder.style.width='600px';
+
+  var myOptions={
+  center:latlon,zoom:17,
+  mapTypeId:google.maps.MapTypeId.SATELLITE,
+  mapTypeControl:true,
+  navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
+  };
+  map=new google.maps.Map(document.getElementById("mapholder"),myOptions);
+  if (navigator.geolocation){
+  navigator.geolocation.getCurrentPosition(showPosition);
+    
+  }
+  }
+  
+  
+function showPosition(position){
+  latlon=new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+  var marker=new google.maps.Marker({position:latlon,map:map,title:"You are located here!"});   
+}
+  
+function showBUSINESS(){
+  deleteMarkers();
+  latlon=new google.maps.LatLng(41.413493,-82.072485);
+  var marker=new google.maps.Marker({position:latlon,map:map,title:"Business Building"});
+  markersArray.push(marker);
+}
+
+function showCENTER(){
+    deleteMarkers();
+    latlon=new google.maps.LatLng(41.413212,-82.073516);
+    var marker=new google.maps.Marker({position:latlon,map:map,title:"College Center"});
+    markersArray.push(marker);
+}
+
+function showSTOCKER(){
+    deleteMarkers();
+    latlon=new google.maps.LatLng(41.411482, -82.071654);
+    var marker=new google.maps.Marker({position:latlon,map:map,title:"Stocker Center"});
+    markersArray.push(marker);
+}
+
+function showCAMPANA(){
+    deleteMarkers();
+    latlon=new google.maps.LatLng(41.411727,-82.073505);
+    var marker=new google.maps.Marker({position:latlon,map:map,title:"Campana Center"});
+    markersArray.push(marker);
+}
+
+function showUNIVERSITY(){
+    deleteMarkers();
+    latlon=new google.maps.LatLng(41.413139, -82.070956);
+    var marker=new google.maps.Marker({position:latlon,map:map,title:"University Center"});
+    markersArray.push(marker);
+}
+
+function showBASS(){
+    deleteMarkers();
+    latlon=new google.maps.LatLng(41.414012, -82.073869);
+    var marker=new google.maps.Marker({position:latlon,map:map,title:"Bass Library"});
+    markersArray.push(marker);
+}
+
+function showSCIENCE(){
+    deleteMarkers();
+    latlon=new google.maps.LatLng(41.412741, -82.072013);
+    var marker=new google.maps.Marker({position:latlon,map:map,title:"Science Building"});
+    markersArray.push(marker);
+}
+
+function showLOFT(){
+    deleteMarkers();
+    latlon=new google.maps.LatLng(41.413489,-82.071654);
+    var marker=new google.maps.Marker({position:latlon,map:map,title:"iLoft"});
+    markersArray.push(marker);
+}
+
+function showHEALTH(){
+  deleteMarkers();
+  latlon=new google.maps.LatLng(41.412186, -82.071530);
+  var marker=new google.maps.Marker({position:latlon,map:map,title:"Business Building"});
+  markersArray.push(marker);
+}
+
+function showADVANCEDTECH(){
+  deleteMarkers();
+  latlon=new google.maps.LatLng(41.412331, -82.073006);
+  var marker=new google.maps.Marker({position:latlon,map:map,title:"Business Building"});
+  markersArray.push(marker);
+}
+
+function deleteMarkers() {
+  if (markersArray) {
+    for (i in markersArray) {
+      markersArray[i].setMap(null);
+    }
+    markersArray.length = 0;
+  }
+}
+
+</script>
+</head>
+
+<body onload="showMap();">
+
+<div data-role="page">
+
+	<div data-role="header">
+    
+    </div>  <!--end header div-->
+
+	<div id="content">
+
+		<section id="mapholder">
+		</section>
+
+	<div id="buttons">
+    
+		<a class="button" onclick="showBUSINESS();">Business Building</a>
+		<a class="button" onclick="showCENTER();">College Center</a>
+		<a class="button" onclick="showSTOCKER();">Stocker Center</a>
+        <a class="button" onclick="showCAMPANA();">Campana Center</a>
+		<a class="button" onclick="showUNIVERSITY();">University Center</a>
+        <a class="button" onclick="showBASS();">Bass Library</a>
+		<a class="button" onclick="showSCIENCE();">Science Building</a>
+		<a class="button" onclick="showLOFT();">iLoft</a>
+		<a class="button" onclick="showHEALTH();">Health Building</a>
+		<a class="button" onclick="showADVANCEDTECH();">Advanced Tech Center</a>
+
+	</div>  <!--end buttons div-->
+
+
+	</div>  <!--end content div-->
+
+	<div data-role="footer">
+    <p>Copyright © 2012 Andrew Karmecy. LCCC. All rights reserved.</p>
+    <p>A Mike Zellers Project<p>
+    </div>  <!--end footer div-->
+
+</div>  <!--end page div-->
+</body>
+</html>

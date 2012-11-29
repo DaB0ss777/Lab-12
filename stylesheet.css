@@ -1,0 +1,41 @@
+body {
+	background-color:#CCCCCC;
+}
+
+container {
+	width:100%;
+	height:100%;
+}
+
+content {
+	width:100%;
+	height:100%;
+}
+
+section {
+	height:500px;
+	width:100%;
+}
+
+buttons {
+	width:80%;
+	height:100px;
+}
+
+a.button {
+	width: 35%;
+	height: 5%;
+	padding: 5px;
+	display: inline-block;
+	font-size: 1em;
+	background-color: #FFFFFF;
+	color: black;
+	font-family: Arial, Gadget, sans-serif;
+	border: solid black 3px;
+}
+
+a.hover {
+	background-color: #EEEEEE;
+	color: #000000;
+}
+
